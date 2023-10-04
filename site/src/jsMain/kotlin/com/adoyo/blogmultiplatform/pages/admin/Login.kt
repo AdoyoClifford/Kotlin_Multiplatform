@@ -1,9 +1,12 @@
 package com.adoyo.blogmultiplatform.pages.admin
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.adoyo.blogmultiplatform.models.Theme
+import com.adoyo.blogmultiplatform.style.LogincomponentStyle
 import com.adoyo.blogmultiplatform.util.Constants.FONT_FAMILY
 import com.adoyo.blogmultiplatform.util.Res
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -32,6 +35,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.css.LineStyle
@@ -65,10 +69,8 @@ fun Login() {
             )
             Input(
                 type = InputType.Text,
-                attrs = Modifier.margin(bottom = 12.px).width(350.px).height(54.px)
-                    .padding(leftRight = 20.px).backgroundColor(Colors.White).border(
-                        width = 0.px, style = LineStyle.None, color = Colors.Transparent
-                    ).outline(
+                attrs = LogincomponentStyle.toModifier().margin(bottom = 12.px).width(350.px).height(54.px)
+                    .padding(leftRight = 20.px).backgroundColor(Colors.White).fontSize(14.px).outline(
                         width = 0.px, style = LineStyle.None, color = Colors.Transparent
                     ).toAttrs {
                         attr("placeHolder", "Username")
@@ -76,19 +78,17 @@ fun Login() {
 
             Input(
                 type = InputType.Password,
-                attrs = Modifier.margin(bottom = 20.px).width(350.px).height(54.px)
-                    .padding(leftRight = 20.px).backgroundColor(Colors.White).border(
-                        width = 0.px, style = LineStyle.None, color = Colors.Transparent
-                    ).outline(
+                attrs = LogincomponentStyle.toModifier().margin(bottom = 20.px).width(350.px).height(54.px)
+                    .padding(leftRight = 20.px).backgroundColor(Colors.White).outline(
                         width = 0.px, style = LineStyle.None, color = Colors.Transparent
                     ).toAttrs {
-                        attr("placeHolder", "Password")
-                    })
+                    attr("placeHolder", "Password")
+                })
             Button(
                 attrs = Modifier.width(350.px).height(54.px).backgroundColor(Theme.Primary.rgb)
                     .color(Colors.White).borderRadius(r = 4.px).fontWeight(FontWeight.Medium)
                     .fontFamily(FONT_FAMILY)
-                    .fontSize(16.px)
+                    .fontSize(14.px)
                     .border(
                         width = 0.px, style = LineStyle.None, color = Colors.Transparent
                     ).outline(
